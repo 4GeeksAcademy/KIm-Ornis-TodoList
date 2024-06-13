@@ -8,10 +8,10 @@ function TodoItem({ label, is_done, delete_todo, toggle_todo }) {
 	return (
 		<div className="todo-item">
 			<input type="checkbox" checked={is_done} onChange={toggle_todo}/>
-			<span className="todo-text">{label}</span>
-			<button className="btn btn-danger" onClick={delete_todo}>
+			<span className="todo-text"onClick={toggle_todo}>{label}</span>
+			<div className="btn btn-danger" onClick={delete_todo}>
 			Delete
-			</button>
+			</div>
 		</div>
 	);
 }
@@ -69,7 +69,7 @@ const Home = () => {
 				setTodos(
 					todos.toSpliced(idx, 1, {
 						label: item.label,
-						is_done: item.is_done,
+						is_done: !item.is_done,
 					})
 				)
 			} 
